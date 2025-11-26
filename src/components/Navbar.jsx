@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from "react-router-dom";
-import logo2d from '../../assets/img/logo/2d-bg-logo.png';
+import logo2d from '../../assets/img/logo/2d-BG-logo.png';
 /* --------------------------------------------
    1. PIXEL NAV LINK (unchanged animation)
 --------------------------------------------- */
