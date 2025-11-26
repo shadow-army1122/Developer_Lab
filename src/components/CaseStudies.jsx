@@ -18,7 +18,7 @@ const projects = [
       { label: "Automated modules", value: "12+" },
       { label: "Increase in user engagement", value: "3x" },
     ],
-    image: "../../assets/img/projects/eventur.png",
+    image: "../assets/img/projects/eventur.png",
   },
   {
     id: 2,
