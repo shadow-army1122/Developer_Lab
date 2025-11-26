@@ -18,7 +18,7 @@ const projects = [
       { label: "Automated modules", value: "12+" },
       { label: "Increase in user engagement", value: "3x" },
     ],
-    image: eventur,
+    image: eventur
   },
   {
     id: 2,
