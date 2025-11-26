@@ -109,7 +109,7 @@ const Testimonials = () => {
           {/* INTRO ANIMATION */}
           <ScrollReveal mode="slide-right" className="mb-12 border-t border-gray-200 pt-8 inline-block w-full">
              <span className="text-gray-400 font-bold tracking-widest uppercase text-xs block mb-8">
-               /TESTIMONIALS
+               /TESTIMONIALs
              </span>
              
              {/* IDLE ANIMATION: Quote Icon floats gently */}

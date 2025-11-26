@@ -5,10 +5,7 @@ import { ScrollReveal } from './ui/ScrollReveal';
 
 // Assuming you might want social icons mapped
 const socialLinks = [
-  { name: 'X / Twitter', href: '#' },
   { name: 'Instagram', href: '#' },
-  { name: 'Behance', href: '#' },
-  { name: 'Telegram', href: '#' },
   { name: 'LinkedIn', href: '#' }
 ];
 
@@ -165,16 +162,16 @@ const Footer = () => {
 
            <ScrollReveal delay={0.1} className="space-y-4">
              <span className="text-xs text-gray-500 uppercase tracking-wider">/ Email</span>
-             <a href="mailto:contact.developerlab@gmail.com" className="text-2xl font-bold text-[#D5312F] hover:text-white transition-colors block">
-               hello@sadewa.com
+             <a href="mailto:contact.developerlab@gmail.com" className="text-1xl font-bold text-[#D5312F] hover:text-white transition-colors block">
+               contact.developerlab@gmail.com
              </a>
-             <p className="text-xl text-gray-400">+1 234 567 89</p>
+             <p className="text-xl text-gray-400">+ 91 8330876720</p>
            </ScrollReveal>
 
            <ScrollReveal delay={0.2} className="space-y-6">
              <span className="text-xs text-gray-500 uppercase tracking-wider">/ Navigation</span>
              <ul className="space-y-3 text-lg font-medium text-gray-300">
-               {['Home', 'Services', 'Case Studies', 'Blog', 'Waitlist'].map(link => (
+               {['Home', 'Services', 'Case Studies', 'Project'].map(link => (
                  <li key={link}>
                    <PixelTextLink href="#">{link}</PixelTextLink>
                  </li>

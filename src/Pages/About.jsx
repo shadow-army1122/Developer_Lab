@@ -17,16 +17,7 @@ import team8 from '../assets/img/team/8.jpg';
 import heroImage from '../assets/img/about/hero.jpg';
 import storyImage from '../assets/img/about/story.jpg';
 
-const team = [
-  { name: "Bayu Pratama", role: "CEO", img: team1 },
-  { name: "Putri Ananda", role: "CTO", img: team2 },
-  { name: "Gilang Nugroho", role: "VP OF ENGINEERING", img: team3 },
-  { name: "Dinda Kumalasari", role: "VP OF DESIGN", img: team4 },
-  { name: "Kartika Sari", role: "SENIOR DESIGNER", img: team5 },
-  { name: "Ardhito Prayogo", role: "SENIOR ENGINEER", img: team6 },
-  { name: "Paramitha", role: "SOCIAL MEDIA SPECIALIST", img: team7 },
-  { name: "Samsul Eka", role: "PARTNERSHIPS MANAGER", img: team8 },
-];
+
 
 const About = () => {
   return (
@@ -52,7 +43,7 @@ const About = () => {
               <div>
                 <ScrollReveal mode="fade-up">
                   <h1 className="text-6xl md:text-8xl font-black text-[#131313] leading-[0.9] mb-8 tracking-tight">
-                    The humans<br />behind Sadewa
+                    The Humans<br />behind Developer Lab
                   </h1>
                 </ScrollReveal>
               </div>
@@ -72,8 +63,9 @@ const About = () => {
 
               <ScrollReveal mode="fade-up" delay={0.2}>
                 <p className="text-xl text-gray-600 max-w-lg leading-relaxed">
-                  With years of experience in digital solutions and a deep curiosity for AI's potential, 
-                  we saw an opportunity to help companies move beyond repetitive work and unlock their true potential.
+                 At   Developer Lab, we believe technology should elevate human potential, not replace it. 
+                 Our team brings deep experience in AI, machine learning, full-stack development, automation systems, and intelligent digital products. 
+                 With a shared passion for innovation, we help businesses transform their ideas into powerful, scalable, and future-ready solutions.
                 </p>
               </ScrollReveal>
             </div>
@@ -97,48 +89,51 @@ const About = () => {
           </div>
         </div>
       </section>
+      {/* WHO WE ARE SECTION */}
+<section className="py-32 bg-white">
+  <div className="container mx-auto px-6 md:px-12">
 
-      {/* TEAM GRID (Humans behind AI) */}
-      <section className="py-32 bg-white">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="mb-20">
-             <ScrollReveal mode="fade-up">
-                <span className="text-gray-400 font-bold tracking-widest uppercase text-xs block mb-6">
-                  / TEAMS
-                </span>
-                <h2 className="text-6xl md:text-8xl font-black text-[#131313]">
-                  Humans behind AI
-                </h2>
-             </ScrollReveal>
-          </div>
+    <ScrollReveal mode="slide-right">
+      <span className="text-gray-400 font-bold tracking-widest uppercase text-xs block mb-6">
+        / WHO WE ARE
+      </span>
+    </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {team.map((member, i) => (
-              <ScrollReveal key={i} mode="fade-up" delay={i * 0.1} className="group">
-                <div 
-                  className="relative bg-[#F9F9F9] p-6 pb-8 hover:shadow-lg transition-all duration-300 overflow-hidden"
-                  style={{ clipPath: "polygon(0 0, 85% 0, 100% 10%, 100% 100%, 0 100%)", borderRadius: "0 1.5rem 1.5rem 1.5rem" }} 
-                >
-                  <span className="absolute top-6 left-6 text-xs font-bold text-gray-300 flex items-center gap-2">
-                     <div className="w-2 h-2 bg-gray-300 rounded-sm" /> 0{i + 1}
-                  </span>
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-                  <div className="mt-8 mb-6 overflow-hidden rounded-2xl aspect-[4/5]">
-                    <img 
-                      src={member.img} 
-                      alt={member.name}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-105"
-                    />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-[#131313] mb-1">{member.name}</h3>
-                  <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">{member.role}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+      {/* LEFT — TEXT AREA */}
+      <ScrollReveal mode="fade-up">
+        <div>
+          <h2 className="text-6xl md:text-7xl font-black text-[#131313] leading-[0.9] mb-8">
+            Where Innovation <br />Solves Real Problems
+          </h2>
+
+          <p className="text-xl text-gray-600 max-w-md leading-relaxed">
+           Developer Lab is a modern tech-service company built by developers, engineers, and innovators who love solving real-world problems. 
+           We specialize in designing intelligent digital ecosystems that simplify complexity, increase efficiency, and supercharge business growth.
+          </p>
         </div>
-      </section>
+      </ScrollReveal>
+
+      {/* RIGHT — IMAGE WITH CUT CORNER */}
+      <PixelRezReveal className="w-full h-full">
+        <div 
+          className="relative w-full aspect-[4/3] overflow-hidden bg-gray-200"
+          style={{ clipPath: "polygon(0 0, 85% 0, 100% 15%, 100% 100%, 0 100%)" }}
+        >
+          <img
+            src={storyImage}
+            alt="Who We Are"
+            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+          />
+        </div>
+      </PixelRezReveal>
+
+    </div>
+  </div>
+</section>
+
+
 
       {/* CAREERS (Join our team) */}
       <section className="py-32 bg-white border-t border-gray-100">
@@ -170,12 +165,12 @@ const About = () => {
             {/* Right List */}
             <div className="grid grid-cols-1 gap-4">
               {[
-                { title: "Project Manager", location: "ON-SITE (GERMANY)", salary: "$250k - $350k" },
-                { title: "Content Marketing Specialist", location: "REMOTE (CANADA)", salary: "$150k - $250k" },
-                { title: "Human Resources", location: "ON-SITE (SINGAPORE)", salary: "$120k - $180k" },
-                { title: "Software Engineer", location: "REMOTE", salary: "$200k - $300k" },
-                { title: "Head of Design", location: "ON-SITE (INDONESIA)", salary: "$250k - $350k" },
-                { title: "AI Automation Specialist", location: "REMOTE", salary: "$250k - $350k" },
+                { title: "Project Manager" },
+                { title: "Content Marketing Specialist" },
+                { title: "Human Resources" },
+                { title: "Software Engineer" },
+                { title: "Head of Design" },
+                { title: "AI Automation Specialist"},
               ].map((job, i) => (
                 <ScrollReveal key={i} mode="slide-right" delay={i * 0.1}>
                   <div className="bg-[#F9F9F9] rounded-xl p-8 hover:bg-white hover:shadow-md transition-all cursor-pointer group border border-transparent hover:border-gray-200 relative overflow-hidden">
@@ -185,9 +180,7 @@ const About = () => {
                     <div className="flex justify-between items-center relative z-10">
                       <div>
                         <h3 className="text-2xl font-bold text-[#131313] mb-2 group-hover:text-[#98fe00] transition-colors">{job.title}</h3>
-                        <p className="text-gray-500 text-xs font-bold tracking-wider uppercase">
-                          {job.location} <span className="text-gray-300 mx-2">/</span> CONTRACT <span className="text-gray-300 mx-2">/</span> {job.salary}
-                        </p>
+
                       </div>
                       <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center group-hover:bg-[#131313] group-hover:text-white transition-colors">
                          <ArrowUpRight size={24} />

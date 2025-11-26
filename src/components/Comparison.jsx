@@ -59,8 +59,8 @@ const Comparison = () => {
                 <div className="absolute top-[-20%] right-[-20%] w-[500px] h-[500px] bg-[#D5312F] rounded-full blur-[120px] pointer-events-none opacity-10" />
                 
                 <div className="flex items-center gap-5 mb-12 relative z-10">
-                   <div className="w-14 h-14 bg-[#D5312F] rounded-2xl flex items-center justify-center text-[#131313] font-bold text-2xl shadow-lg shadow-[#D5312F]/20">S</div>
-                   <h3 className="text-4xl font-bold tracking-tight">Sadewa</h3>
+                   <div className="w-14 h-14 bg-[#D5312F] rounded-2xl flex items-center justify-center text-[#131313] font-bold text-2xl shadow-lg shadow-[#D5312F]/20">DL</div>
+                   <h3 className="text-4xl font-bold tracking-tight">Developer Lab</h3>
                 </div>
 
                 {/* Staggered List */}
@@ -72,13 +72,13 @@ const Comparison = () => {
                   className="space-y-8 relative z-10 flex-1"
                 >
                   {[
-                    "Tailored custom AI agents and automation", 
-                    "Covers strategy, build, and optimization", 
-                    "Machine learning insights", 
-                    "Solutions that grow with your business", 
-                    "Continuous improvements and support", 
-                    "Global tech expertise", 
-                    "Works alongside your team like an extension"
+                    "Tailored tech product development & automation", 
+                    "Covers strategy, build, launch & long-term optimization", 
+                    "Future-ready AI features, insights & scalable architecture", 
+                    "Work on real-world projects with full guided training", 
+                    "Clear the entire course required for the project topic", 
+                    "Daily attendance handover to institutions with reporting"
+    
                   ].map((item, i) => (
                     <motion.li key={i} variants={listItemVariants} className="flex items-start gap-5 group">
                       <div className="w-7 h-7 bg-[#D5312F] rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-sm group-hover:scale-110 transition-transform">
@@ -118,13 +118,13 @@ const Comparison = () => {
                   className="space-y-8 text-[#666666] flex-1"
                >
                 {[
-                  "Limited or no AI expertise", 
-                  "Only offers basic marketing or dev services", 
-                  "Manual analysis, slower results", 
-                  "Hard to scale without extra costs", 
-                  "One-off projects with little follow-up", 
-                  "Generic approaches, no cultural uniqueness", 
-                  "Transactional, project-based relationships"
+                  "Limited or no AI or scalable tech expertise", 
+                  "Only offer basic development with weak long-term growth", 
+                  "Hard to scale, slow delivery, minimal innovation", 
+                  "Only give dummy projects with no real-world value", 
+                  "No proper teaching before assigning project work", 
+                  "No attendance tracking or institutional updates"
+                  
                 ].map((item, i) => (
                   <motion.li key={i} variants={listItemVariants} className="flex items-start gap-5 opacity-60 hover:opacity-100 transition-opacity">
                     <div className="w-7 h-7 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0 mt-1">

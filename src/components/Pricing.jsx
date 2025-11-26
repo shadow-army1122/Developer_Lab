@@ -6,24 +6,24 @@ const Pricing = () => {
 
   const plans = [
     {
-      name: "Starter",
-      desc: "Perfect for small businesses",
-      price: isYearly ? "799" : "999",
-      features: ["AI Strategy session", "Basic workflow automation", "Monthly performance report", "Email support"],
+      name: "Skill Launchpad",
+      desc: "Perfect for Students & Beginners",
+      price:  "₹10,000",
+      features: ["Complete Course Training", "Internship Opportunity", "Real-World Project Experience", "Weekly Progress Evaluation","Project Presentation & Certification"],
       highlight: false
     },
     {
-      name: "Growth",
-      desc: "Perfect for growth company",
-      price: isYearly ? "1999" : "2499",
-      features: ["Everything in starter", "Custom AI agent development", "CRM Automation setup", "Bi-weekly optimization"],
+      name: "Ignite Brand Plan",
+      desc: "Perfect for Startups & New Brands",
+      price:  "₹25,000",
+      features: ["High-quality Landing Page Website", "SEO Setup & Optimization", "Logo Design + Brand Identity Pack", "Brand Name Suggestions","Social Media Kit Setup"],
       highlight: true
     },
     {
-      name: "Enterprise",
-      desc: "Perfect for big businesses",
-      price: "Custom",
-      features: ["Everything in growth", "Full process automation", "Dedicated AI consultant", "Advanced analytics dashboard"],
+      name: "Innovation Tech Build",
+      desc: "Perfect for Businesses Building Custom Tech Products",
+      price:  "Starts from ₹1,00,000",
+      features: ["Full-stack Product Design & Development", "Custom Features & Automation Workflows", "Performance-Optimized Architecture", "Weekly Build Updates & Sprint Reviews","Deployment + Post-Launch Support"],
       highlight: false
     }
   ];
@@ -41,14 +41,7 @@ const Pricing = () => {
            
            {/* TOGGLE SWITCH */}
            <div className="flex items-center bg-gray-100 p-1 rounded-full mt-6 md:mt-0">
-              <button 
-                onClick={() => setIsYearly(true)}
-                className={`px-6 py-2 rounded-full text-sm font-bold transition-all ${
-                  isYearly ? 'bg-brand-black text-white' : 'text-brand-gray'
-                }`}
-              >
-                Yearly <span className="text-xs font-normal opacity-70 ml-1">SAVE 20%</span>
-              </button>
+  
 
               <button 
                 onClick={() => setIsYearly(false)}
@@ -87,7 +80,7 @@ const Pricing = () => {
                    <span className="text-4xl font-bold">Get quote</span>
                  ) : (
                    <div className="flex items-baseline gap-1">
-                     <span className="text-4xl font-bold">${plan.price}</span>
+                     <span className="text-4xl font-bold">{plan.price}</span>
                      <span className="text-sm opacity-60">/month</span>
                    </div>
                  )}
@@ -98,7 +91,7 @@ const Pricing = () => {
                 {plan.features.map((feat, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <div 
-                      className={`w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
+                      className={`w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ₹{
                         plan.highlight 
                           ? 'bg-[#D5312F] text-black' 
                           : 'bg-gray-100 text-black'
