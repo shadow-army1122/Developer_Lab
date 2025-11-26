@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { ScrollReveal } from './ui/ScrollReveal';
-
+import evenetur from '../assets/img/projects/eventur.png';
 // ---------------------------------------------------------------------------
 // PROJECT DATA
 // ---------------------------------------------------------------------------
@@ -18,7 +18,7 @@ const projects = [
       { label: "Automated modules", value: "12+" },
       { label: "Increase in user engagement", value: "3x" },
     ],
-    image: "../assets/img/projects/eventur.png",
+    image: eventur,
   },
   {
     id: 2,
