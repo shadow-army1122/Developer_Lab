@@ -83,9 +83,9 @@ const NavCTA = () => {
 --------------------------------------------- */
 const navLinks = [
   { name: 'Case Studies', href: '#case-studies' },
-  { name: 'Services', href: '#services' },
+  { name: 'Services', href: '/services' },
   { name: 'About Us', href: '/about' },
-  { name: 'Blog', href: '#blog' },
+  { name: 'Blog', href: '' },
   { name: 'Careers', href: '#careers' },
 ];
 

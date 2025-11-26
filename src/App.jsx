@@ -48,11 +48,26 @@ function App() {
             } 
           />
 
-          {/* ABOUT PAGE */}
-          <Route path="/about" element={<About />} />
-
+          {/* external PAGE */}
+          <Route path="/about" element={<><About /> <Footer/></>} />
+          <Route 
+            path="/Services" 
+            element={
+              <>
+                <Hero />
+                <Bottlenecks />
+                <Services />
+                <CaseStudies />
+                <OurApproach />
+                <Testimonials />
+                <Comparison />
+                <Pricing />
+                <Footer />
+              </>
+            } 
+          />
         </Routes>
-
+            
       </div>
     </BrowserRouter>
   );

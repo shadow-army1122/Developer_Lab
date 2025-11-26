@@ -32,21 +32,44 @@ const About = () => {
   return (
     <div id="about" className="w-full bg-white">
       
-      {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center bg-white overflow-hidden pt-32 pb-20">
+      {/* HERO SECTION (Exact Replica of Image) */}
+      <section className="relative min-h-screen flex items-center bg-[#FAFAFA] overflow-hidden pt-32 pb-20">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Left Text */}
-            <div>
-              <ScrollReveal mode="slide-right">
-                <span className="text-[#D5312F] font-bold tracking-widest uppercase text-xs block mb-6">
+          
+          {/* Top Label */}
+          <div className="mb-12">
+             <ScrollReveal mode="slide-right">
+                <span className="text-gray-400 font-bold tracking-widest uppercase text-xs block">
                   / ABOUT US
                 </span>
-                <h1 className="text-6xl md:text-8xl font-black text-[#131313] leading-[0.9] mb-8">
-                  The humans<br />behind Sadewa
-                </h1>
-              </ScrollReveal>
-              
+             </ScrollReveal>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            
+            {/* LEFT COLUMN: Text + Small Image */}
+            <div className="flex flex-col gap-12">
+              <div>
+                <ScrollReveal mode="fade-up">
+                  <h1 className="text-6xl md:text-8xl font-black text-[#131313] leading-[0.9] mb-8 tracking-tight">
+                    The humans<br />behind Sadewa
+                  </h1>
+                </ScrollReveal>
+              </div>
+
+              {/* Small Image with Cut Corner */}
+              <div className="relative w-full max-w-md aspect-[16/9] overflow-hidden group">
+                 <PixelRezReveal className="w-full h-full">
+                    <div className="w-full h-full relative" style={{ clipPath: "polygon(0 0, 85% 0, 100% 20%, 100% 100%, 0 100%)" }}>
+                       <img 
+                         src={storyImage} 
+                         alt="Team Working" 
+                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                       />
+                    </div>
+                 </PixelRezReveal>
+              </div>
+
               <ScrollReveal mode="fade-up" delay={0.2}>
                 <p className="text-xl text-gray-600 max-w-lg leading-relaxed">
                   With years of experience in digital solutions and a deep curiosity for AI's potential, 
@@ -55,57 +78,32 @@ const About = () => {
               </ScrollReveal>
             </div>
 
-            {/* Right Image */}
-            <div className="relative">
+            {/* RIGHT COLUMN: Large Image with Cut Corner */}
+            <div className="relative h-full min-h-[600px]">
               <PixelRezReveal className="w-full h-full">
-                <img 
-                  src={heroImage} 
-                  alt="Sadewa Team" 
-                  className="w-full rounded-3xl shadow-2xl object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                />
+                <div 
+                  className="w-full h-full relative overflow-hidden bg-gray-200"
+                  style={{ clipPath: "polygon(0 0, 80% 0, 100% 10%, 100% 100%, 0 100%)" }}
+                >
+                  <img 
+                    src={heroImage} 
+                    alt="Developer Lab Team Happy" 
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 scale-105"
+                  />
+                </div>
               </PixelRezReveal>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* OUR STORY */}
-      <section className="py-32 bg-[#FAFAFA]">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 gap-20 items-center">
-            <div className="order-2 md:order-1">
-               <PixelRezReveal>
-                  <img 
-                    src={storyImage} 
-                    alt="Our Story" 
-                    className="w-full rounded-3xl shadow-2xl"
-                  />
-               </PixelRezReveal>
-            </div>
-            <div className="order-1 md:order-2">
-              <ScrollReveal mode="fade-up">
-                <span className="text-[#D5312F] font-bold tracking-widest uppercase text-xs block mb-6">
-                  / OUR STORY
-                </span>
-                <h2 className="text-5xl md:text-7xl font-black text-[#131313] leading-[0.9] mb-8">
-                  Rooted in wisdom,<br />driven by innovation
-                </h2>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  Founded in Indonesia, Sadewa is named after the wise and strong twin of Nakula from the Mahabharata. 
-                  From Jakarta to the world, we blend Indonesian creativity with advanced AI to solve real business challenges.
-                </p>
-              </ScrollReveal>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* HUMANS BEHIND AI (New Design) */}
+      {/* TEAM GRID (Humans behind AI) */}
       <section className="py-32 bg-white">
         <div className="container mx-auto px-6 md:px-12">
           <div className="mb-20">
              <ScrollReveal mode="fade-up">
-                <span className="text-[#D5312F] font-bold tracking-widest uppercase text-xs block mb-6">
+                <span className="text-gray-400 font-bold tracking-widest uppercase text-xs block mb-6">
                   / TEAMS
                 </span>
                 <h2 className="text-6xl md:text-8xl font-black text-[#131313]">
@@ -118,13 +116,11 @@ const About = () => {
             {team.map((member, i) => (
               <ScrollReveal key={i} mode="fade-up" delay={i * 0.1} className="group">
                 <div 
-                  className="relative bg-white border border-gray-100 p-6 pb-8 hover:shadow-lg transition-all duration-300 overflow-hidden"
-                  // Custom Clip Path for the "Cut Corner" look
-                  style={{ clipPath: "polygon(0 0, 85% 0, 100% 10%, 100% 100%, 0 100%)", borderRadius: "1.5rem" }} 
+                  className="relative bg-[#F9F9F9] p-6 pb-8 hover:shadow-lg transition-all duration-300 overflow-hidden"
+                  style={{ clipPath: "polygon(0 0, 85% 0, 100% 10%, 100% 100%, 0 100%)", borderRadius: "0 1.5rem 1.5rem 1.5rem" }} 
                 >
-                  {/* Number */}
-                  <span className="absolute top-6 left-6 text-xs font-bold text-gray-300">
-                     ■ 0{i + 1}
+                  <span className="absolute top-6 left-6 text-xs font-bold text-gray-300 flex items-center gap-2">
+                     <div className="w-2 h-2 bg-gray-300 rounded-sm" /> 0{i + 1}
                   </span>
 
                   <div className="mt-8 mb-6 overflow-hidden rounded-2xl aspect-[4/5]">
@@ -144,16 +140,16 @@ const About = () => {
         </div>
       </section>
 
-      {/* JOIN OUR TEAM (New Design) */}
-      <section className="py-32 bg-[#FAFAFA]">
+      {/* CAREERS (Join our team) */}
+      <section className="py-32 bg-white border-t border-gray-100">
         <div className="container mx-auto px-6 md:px-12">
           
           <div className="grid md:grid-cols-2 gap-20 items-start">
             
-            {/* Left Sticky Content */}
+            {/* Left Content */}
             <div className="sticky top-32">
                <ScrollReveal mode="fade-up">
-                 <span className="text-[#D5312F] font-bold tracking-widest uppercase text-xs block mb-6">
+                 <span className="text-gray-400 font-bold tracking-widest uppercase text-xs block mb-6">
                    / CAREERS
                  </span>
                  <h2 className="text-6xl md:text-8xl font-black text-[#131313] leading-[0.9] mb-8">
@@ -182,19 +178,19 @@ const About = () => {
                 { title: "AI Automation Specialist", location: "REMOTE", salary: "$250k - $350k" },
               ].map((job, i) => (
                 <ScrollReveal key={i} mode="slide-right" delay={i * 0.1}>
-                  <div className="bg-white rounded-xl p-8 hover:bg-white/80 transition-all cursor-pointer group border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md relative overflow-hidden">
-                    {/* Cut Corner Effect for Job Card */}
-                    <div className="absolute top-0 right-0 w-8 h-8 bg-[#FAFAFA] transform rotate-45 translate-x-4 -translate-y-4 border border-gray-200" />
+                  <div className="bg-[#F9F9F9] rounded-xl p-8 hover:bg-white hover:shadow-md transition-all cursor-pointer group border border-transparent hover:border-gray-200 relative overflow-hidden">
+                    {/* Cut Corner Effect */}
+                    <div className="absolute top-0 right-0 w-10 h-10 bg-white transform rotate-45 translate-x-5 -translate-y-5 border border-gray-100" />
                     
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center relative z-10">
                       <div>
-                        <h3 className="text-2xl font-bold text-[#131313] mb-2 group-hover:text-[#D5312F] transition-colors">{job.title}</h3>
+                        <h3 className="text-2xl font-bold text-[#131313] mb-2 group-hover:text-[#98fe00] transition-colors">{job.title}</h3>
                         <p className="text-gray-500 text-xs font-bold tracking-wider uppercase">
                           {job.location} <span className="text-gray-300 mx-2">/</span> CONTRACT <span className="text-gray-300 mx-2">/</span> {job.salary}
                         </p>
                       </div>
-                      <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:bg-[#131313] group-hover:text-white transition-colors">
-                         <ArrowUpRight size={20} />
+                      <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center group-hover:bg-[#131313] group-hover:text-white transition-colors">
+                         <ArrowUpRight size={24} />
                       </div>
                     </div>
                   </div>
