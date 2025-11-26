@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { ScrollReveal } from './ui/ScrollReveal';
-import evenetur from '../assets/img/projects/eventur.png';
+import eventur from '../assets/img/projects/eventur.png';
 // ---------------------------------------------------------------------------
 // PROJECT DATA
 // ---------------------------------------------------------------------------
