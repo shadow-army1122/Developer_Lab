@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from "react-router-dom";
-
+import logo2d from '../assets/img/logo/2d-bg-logo.png';
 /* --------------------------------------------
    1. PIXEL NAV LINK (unchanged animation)
 --------------------------------------------- */
@@ -141,7 +141,7 @@ const Navbar = () => {
         <a href="#" className="flex items-center gap-3 group mr-8 shrink-0">
           <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-white shadow-lg ring-1 ring-black/5">
             <img
-              src="src/assets/img/logo/2d-bg-logo.png"
+              src={logo2d}
               alt="Developer Lab"
               className="w-full h-full object-contain p-1.5"
               draggable="false"
