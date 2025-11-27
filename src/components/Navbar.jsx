@@ -83,7 +83,7 @@ const NavCTA = () => {
 --------------------------------------------- */
 const navLinks = [
   { name: 'Case Studies', href: '/?scroll=case-studies' },
-  { name: 'Careers', href: '/about' },
+  { name: 'Careers', href: '/careers' },
   { name: 'Services', href: '/?scroll=services' }, 
   { name: 'About', href: '/About' },
   { name: 'Projects', href: '/about?scroll=careers'},

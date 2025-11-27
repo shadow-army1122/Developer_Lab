@@ -13,10 +13,9 @@ import Footer from './components/Footer';
 import Bottlenecks from './components/Bottlenecks';
 import ScrollToSection from "./components/ScrollToSection";
 
-// Pages
 import About from './Pages/About';
+import Careers from './Pages/Careers';
 
-// Loader
 import PageLoader from './components/ui/PageLoader';
 
 function App() {
@@ -24,9 +23,7 @@ function App() {
     <BrowserRouter>
       <div className="relative antialiased bg-white min-h-screen selection:bg-brand-lime selection:text-black">
 
-        {/* Global Loader */}
         <PageLoader />
-
         <Navbar />
 
         <Routes>
@@ -36,8 +33,7 @@ function App() {
             path="/" 
             element={
               <>
-
-               <ScrollToSection />
+                <ScrollToSection />
                 <Hero />
                 <Bottlenecks />
                 <Services />
@@ -51,10 +47,12 @@ function App() {
             } 
           />
 
-          {/* external PAGE */}
+          {/* ABOUT PAGE */}
           <Route path="/about" element={<><About /> <Footer/></>} />
+
+          {/* SERVICES PAGE */}
           <Route 
-            path="/Services" 
+            path="/services" 
             element={
               <>
                 <Hero />
@@ -69,8 +67,15 @@ function App() {
               </>
             } 
           />
+
+          {/* CAREERS PAGE */}
+          <Route 
+            path="/careers" 
+            element={<><Careers /> <Footer/></>} 
+          />
+
         </Routes>
-            
+
       </div>
     </BrowserRouter>
   );

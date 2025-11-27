@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import { PixelRezReveal } from '../components/ui/PixelRezReveal';
-
+import {  PixelButton } from '../components/ui/PixelReveal'
 // ASSET IMPORTS
 import team1 from '../assets/img/team/1.jpg';
 import team2 from '../assets/img/team/2.jpg';
@@ -16,8 +16,6 @@ import team8 from '../assets/img/team/8.jpg';
 
 import heroImage from '../assets/img/about/hero.jpg';
 import storyImage from '../assets/img/about/story.jpg';
-
-
 
 const About = () => {
   return (
@@ -153,12 +151,9 @@ const About = () => {
                  <p className="text-xl text-gray-600 mb-10 max-w-md">
                    We're always in the search for talented people to grow.
                  </p>
-                 <button className="bg-[#131313] text-white px-8 py-4 rounded-lg font-bold flex items-center gap-3 hover:bg-[#98fe00] hover:text-black transition-colors group">
-                   See all openings 
-                   <div className="bg-[#98fe00] text-black p-1 rounded group-hover:bg-white group-hover:text-black transition-colors">
-                     <ArrowUpRight size={16} />
-                   </div>
-                 </button>
+                <PixelButton type="primary" className="w-3/4">
+                  See all Openings
+                  </PixelButton>
                </ScrollReveal>
             </div>
 
@@ -179,7 +174,7 @@ const About = () => {
                     
                     <div className="flex justify-between items-center relative z-10">
                       <div>
-                        <h3 className="text-2xl font-bold text-[#131313] mb-2 group-hover:text-[#98fe00] transition-colors">{job.title}</h3>
+                        <h3 className="text-2xl font-bold text-[#131313] mb-2 group-hover:text-[#D5312F] transition-colors">{job.title}</h3>
 
                       </div>
                       <div className="w-12 h-12 bg-gray-200 rounded-lg flex items-center justify-center group-hover:bg-[#131313] group-hover:text-white transition-colors">
