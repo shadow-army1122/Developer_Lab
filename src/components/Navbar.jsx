@@ -82,11 +82,11 @@ const NavCTA = () => {
    3. NAV LINKS
 --------------------------------------------- */
 const navLinks = [
-  { name: 'Case Studies', href: '#case-studies' },
-  { name: 'Services', href: '/services' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Blog', href: '' },
-  { name: 'Careers', href: '#careers' },
+  { name: 'Case Studies', href: '/?scroll=case-studies' },
+  { name: 'Careers', href: '/about' },
+  { name: 'Services', href: '/?scroll=services' }, 
+  { name: 'About', href: '/About' },
+  { name: 'Projects', href: '/about?scroll=careers'},
 ];
 
 /* --------------------------------------------
@@ -138,21 +138,13 @@ const Navbar = () => {
       >
 
         {/* LOGO */}
-        <a href="#" className="flex items-center gap-3 group mr-8 shrink-0">
-          <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-white shadow-lg ring-1 ring-black/5">
-            <img
-              src={logo2d}
-              alt="Developer Lab"
-              className="w-full h-full object-contain p-1.5"
-              draggable="false"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 translate-x-[-100%] group-hover:translate-x-[100%] transition-all duration-1000" />
-          </div>
+<a href="/" className="flex items-center gap-3 group mr-8 shrink-0">
+  <span className="text-xl font-black tracking-tight hidden lg:block">
+    <span className="text-[#131313]">DEVELOPER </span>
+    <span className="text-[#D5312F]">LAB</span>
+  </span>
+</a>
 
-          <span className="text-xl font-black tracking-tight text-[#131313] hidden lg:block">
-            DEVELOPER LAB
-          </span>
-        </a>
 
         {/* DESKTOP NAV LINKS */}
         <div className="hidden md:flex items-center bg-white/60 p-1.5 rounded-full backdrop-blur-md border border-gray-200/50 shadow-sm gap-1">

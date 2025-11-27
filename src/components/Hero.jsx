@@ -110,7 +110,7 @@ We build smart, scalable tech products for startups, new brands, and fast-growin
                     </PixelButton>
                   </div>
                   
-                  <div className="w-full sm:w-auto">
+                  <div className="w-full sm:w-auto  ">
                     <PixelButton type="secondary" className="w-full">
                        Work with us
                     </PixelButton>

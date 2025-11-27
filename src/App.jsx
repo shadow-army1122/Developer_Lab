@@ -11,6 +11,7 @@ import Comparison from './components/Comparison';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
 import Bottlenecks from './components/Bottlenecks';
+import ScrollToSection from "./components/ScrollToSection";
 
 // Pages
 import About from './Pages/About';
@@ -35,6 +36,8 @@ function App() {
             path="/" 
             element={
               <>
+
+               <ScrollToSection />
                 <Hero />
                 <Bottlenecks />
                 <Services />
