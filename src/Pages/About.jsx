@@ -151,7 +151,7 @@ const About = () => {
                  <p className="text-xl text-gray-600 mb-10 max-w-md">
                    We're always in the search for talented people to grow.
                  </p>
-                <PixelButton type="primary" className="w-3/4">
+                <PixelButton type="primary" className="w-3/4" href="/careers">
                   See all Openings
                   </PixelButton>
                </ScrollReveal>
