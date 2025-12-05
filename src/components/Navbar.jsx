@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import { Link } from "react-router-dom";
-import logo2d from '../assets/img/logo/2d-BG-logo.png';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 /* --------------------------------------------
-   1. PIXEL NAV LINK (unchanged animation)
+   PIXEL NAV LINK (Desktop Only)
 --------------------------------------------- */
 const PixelNavLink = ({ href, children }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -52,7 +52,7 @@ const PixelNavLink = ({ href, children }) => {
 };
 
 /* --------------------------------------------
-   2. NAV CTA (unchanged except colors)
+   NAV CTA (Desktop Only)
 --------------------------------------------- */
 const NavCTA = () => {
   return (
@@ -62,11 +62,11 @@ const NavCTA = () => {
     >
       <div className="absolute inset-0 translate-y-full bg-[#131313] transition-transform duration-300 ease-[0.22,1,0.36,1] group-hover:translate-y-0" />
       <span className="relative z-10 transition-colors duration-300 group-hover:text-[#D5312F]">
-        Work with us
+        Login
       </span>
       <div className="relative z-10 overflow-hidden w-4 h-4">
         <div className="flex flex-col transition-transform duration-300 ease-[0.22,1,0.36,1] group-hover:-translate-y-1/2">
-          <div className="h-4 flex items-center justify-center text-[#131313] transition-colors duration-300 group-hover:text-[#D5312F]">
+          <div className="h-4 flex items-center justify-center text-[#131313] group-hover:text-[#D5312F]">
             <ArrowUpRight size={16} />
           </div>
           <div className="h-4 flex items-center justify-center text-[#D5312F]">
@@ -79,28 +79,65 @@ const NavCTA = () => {
 };
 
 /* --------------------------------------------
-   3. NAV LINKS
+   NAV LINKS
 --------------------------------------------- */
 const navLinks = [
-  { name: 'Case Studies', href: '/?scroll=case-studies' },
+  
   { name: 'Careers', href: '/careers' },
-  { name: 'Services', href: '/?scroll=services' }, 
+  { name: 'Services', href: '/?scroll=services' },
   { name: 'About', href: '/About' },
-  { name: 'Projects', href: '/about?scroll=careers'},
+  { name: 'Projects', href: '/Projects' },
+  { name: 'Contact us', href: '/Contact' },
 ];
 
 /* --------------------------------------------
-   4. FULL NAVBAR (with mobile support)
+   MERGED NAVBAR (Desktop + Mobile Headings)
 --------------------------------------------- */
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Scroll detection for desktop animation
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  /* --------------------------------------------
+     MOBILE NAVIGATION HANDLING (from Code #2)
+  --------------------------------------------- */
+  const handleMobileNavClick = (href) => {
+    setMobileOpen(false);
+
+    if (href.startsWith('#')) {
+      const id = href.replace('#', '');
+      if (location.pathname !== '/') {
+        navigate('/', { state: { scrollTo: id } });
+      } else {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+
+    navigate(href);
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    if (location.pathname === '/' && location.state?.scrollTo) {
+      const id = location.state.scrollTo;
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        window.history.replaceState({}, document.title);
+      }, 150);
+    }
+  }, [location]);
 
   const navVariants = {
     initial: { y: -100, opacity: 0 },
@@ -127,97 +164,104 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
-
-      <motion.nav
-        variants={navVariants}
-        initial="initial"
-        animate={scrolled ? "scrolled" : "top"}
-        transition={{ type: "spring", stiffness: 150, damping: 22, mass: 1 }}
-        className="backdrop-blur-xl rounded-full flex items-center justify-between border pointer-events-auto"
-      >
-
-        {/* LOGO */}
-<a href="/" className="flex items-center gap-3 group mr-8 shrink-0">
-  <span className="text-xl font-black tracking-tight hidden lg:block">
-    <span className="text-[#131313]">DEVELOPER </span>
-    <span className="text-[#D5312F]">LAB</span>
-  </span>
-</a>
-
-
-        {/* DESKTOP NAV LINKS */}
-        <div className="hidden md:flex items-center bg-white/60 p-1.5 rounded-full backdrop-blur-md border border-gray-200/50 shadow-sm gap-1">
-          {navLinks.map((link) => (
-            <PixelNavLink key={link.name} href={link.href}>
-              {link.name}
-            </PixelNavLink>
-          ))}
-        </div>
-
-        {/* CTA + MOBILE BUTTON */}
-        <div className="flex items-center gap-4 ml-8 shrink-0">
-          <div className="hidden md:block"><NavCTA /></div>
-
-          {/* MOBILE HAMBURGER */}
-          <button 
-            className="md:hidden text-[#131313]"
-            onClick={() => setMobileOpen(true)}
-          >
-            <div className="space-y-1.5">
-              <span className="block w-6 h-0.5 bg-current"></span>
-              <span className="block w-6 h-0.5 bg-current"></span>
-            </div>
-          </button>
-        </div>
-      </motion.nav>
-
-      {/* ---------------------- MOBILE MENU ---------------------- */}
-      {mobileOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] md:hidden"
-          onClick={() => setMobileOpen(false)}
+    <>
+      {/* DESKTOP NAVBAR */}
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
+        <motion.nav
+          variants={navVariants}
+          initial="initial"
+          animate={scrolled ? "scrolled" : "top"}
+          transition={{ type: "spring", stiffness: 150, damping: 22, mass: 1 }}
+          className="backdrop-blur-xl rounded-full flex items-center justify-between border pointer-events-auto"
         >
+
+          {/* LOGO — DESKTOP & MOBILE VERSIONS */}
+          <a href="/" className="flex items-center gap-3 group mr-8 shrink-0">
+
+            {/* Desktop Heading */}
+            <span className="text-xl font-black tracking-tight hidden md:block">
+              <span className="text-[#131313]">DEVELOPER </span>
+              <span className="text-[#D5312F]">LAB</span>
+            </span>
+
+            {/* Mobile Heading */}
+            <span className="text-lg font-black tracking-tight md:hidden">
+              <span className="text-[#131313]">DEV </span>
+              <span className="text-[#D5312F]">LAB</span>
+            </span>
+
+          </a>
+
+          {/* DESKTOP NAV LINKS */}
+          <div className="hidden md:flex items-center bg-white/60 p-1.5 rounded-full backdrop-blur-md border border-gray-200/50 shadow-sm gap-1">
+            {navLinks.map((link) => (
+              <PixelNavLink key={link.name} href={link.href}>
+                {link.name}
+              </PixelNavLink>
+            ))}
+          </div>
+
+          {/* CTA + MOBILE BUTTON */}
+          <div className="flex items-center gap-4 ml-8 shrink-0">
+            <div className="hidden md:block"><NavCTA /></div>
+
+            <button 
+              className="md:hidden text-[#131313] p-2"
+              onClick={() => setMobileOpen(true)}
+            >
+              <Menu />
+            </button>
+          </div>
+        </motion.nav>
+      </div>
+
+      {/* ------------------ FULLSCREEN MOBILE MENU ------------------ */}
+      <AnimatePresence>
+        {mobileOpen && (
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute right-0 top-0 h-full w-72 bg-white shadow-xl px-6 py-10 flex flex-col gap-6"
-            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-[70] bg-white pt-28 px-6 pb-6 md:hidden flex flex-col gap-6 overflow-y-auto"
           >
-            {/* CLOSE BUTTON */}
-            <button
-              className="absolute top-5 right-6 text-[#131313] text-2xl"
+            {/* Close Button */}
+            <button 
+              className="absolute top-10 right-6 text-[#131313] text-3xl"
               onClick={() => setMobileOpen(false)}
             >
-              ×
+              <X />
             </button>
 
-            {/* LINKS */}
-            <div className="flex flex-col gap-4 mt-8">
+            {/* Mobile Logo Heading */}
+            <div className="text-2xl font-black mb-6">
+              <span className="text-[#131313]">DEVELOPER </span>
+              <span className="text-[#D5312F]">LAB</span>
+            </div>
+
+            {/* Link List */}
+            <div className="flex flex-col gap-2 mt-4">
               {navLinks.map((link) => (
-                <PixelNavLink key={link.name} href={link.href}>
+                <button
+                  key={link.name}
+                  onClick={() => handleMobileNavClick(link.href)}
+                  className="text-left text-2xl font-bold text-[#131313] py-4 border-b border-gray-100"
+                >
                   {link.name}
-                </PixelNavLink>
+                </button>
               ))}
             </div>
 
             {/* CTA */}
-            <div className="mt-6">
-              <a
-                href="#contact"
-                className="w-full block text-center rounded-full bg-[#131313] text-[#D5312F] py-3 font-medium"
-              >
-                Work with us
-              </a>
-            </div>
+            <button
+              onClick={() => handleMobileNavClick('#contact')}
+              className="w-full bg-[#131313] text-white py-4 rounded-xl font-bold mt-auto flex items-center justify-center gap-2"
+            >
+              Login <ArrowUpRight />
+            </button>
           </motion.div>
-        </motion.div>
-      )}
-
-    </div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

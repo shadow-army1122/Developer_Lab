@@ -3,7 +3,8 @@ import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { ScrollReveal } from './ui/ScrollReveal';
-import eventur from '../assets/img/projects/eventur.png';
+import eventur from '../assets/img/projects/eventur.webp';
+import mentur from '../assets/img/projects/mentur.webp';
 // ---------------------------------------------------------------------------
 // PROJECT DATA
 // ---------------------------------------------------------------------------
@@ -30,7 +31,7 @@ const projects = [
       { label: "Student journeys supported", value: "4K+" },
       { label: "Faster decision-making through AI", value: "5x" },
     ],
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2400&auto=format&fit=crop",
+    image: mentur,
   },
   {
     id: 3,
